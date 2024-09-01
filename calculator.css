@@ -1,0 +1,281 @@
+/* COMMON SECTION */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.site {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.site-content {
+    flex: 1;
+}
+
+.container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-direction: row-reverse;
+}
+
+h1, h2, h3 {
+    margin: 0 0;
+}
+
+h1 {
+    font-size: 2em;
+    text-align: center;
+    margin: 30px 0;
+}
+
+h2, h3 {
+    font-size: 1em;
+}
+
+.sub-title {
+    width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    padding: 10px 0;
+    font-size: 1.2em;
+}
+
+body {
+    overflow-y: overlay;
+}
+
+::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+    outline: none;
+    border-radius: 10px;
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.15);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    border: 4px solid transparent;
+    box-shadow: inset 6px 6px 0 rgba(34, 34, 34, 0.3);
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: none;
+    background-color: transparent;
+}
+
+/* SECTION */
+#section1{
+    width: 45%;
+    height: 72%;
+    left: 2%;
+    bottom: 8%;
+    position: fixed;
+    overflow: scroll;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform  0.3s ease-out;
+
+}
+
+#section2{  
+    width: 50%;
+}
+
+/* Flexbox */
+#section1 .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#section2 .row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.col {
+    flex: 1;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.inner-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px;
+}
+
+.inner-col {
+    flex: 1;
+    padding: 5px;
+    box-sizing: border-box;
+    min-width: 100px;
+}
+
+.inner-col img {
+    height: 50px;
+}
+
+.appliance-item {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.appliance-item:hover {
+    background-color: #e0e0e0;
+}
+
+.appliance-label {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.7em;    
+}
+
+.appliance-item img {
+    height: 50px;
+}
+
+/* RESULT SECTION */
+.results-section {
+    margin-top: 30px;
+}
+
+.results-data {
+    margin-top: 20px;
+}
+
+.results-data input{
+    width: 50%;
+}
+
+
+.results-elements{
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.results-elements img{
+    margin-right: 10px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    font-size: 12px;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-secondary {
+    background-color: #f1f1f1;
+}
+
+#results-section table {
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+
+#results-section {
+    overflow-x: auto;
+}
+
+#summary-table td {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+.img-sys {
+    max-width: 100%;
+}
+
+
+@media (max-width: 900px) {
+    .container{
+        flex-direction: column-reverse;
+    }
+    
+    #section1{
+        position: unset;
+        width: 100%;
+        padding: 0;
+        overflow: none;
+        transition: none !important;
+    }
+
+    #section2{  
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .col, #section2 .inner-col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .inner-row, #section2 .row {
+        flex-direction: column !important;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+
+    .results-data {
+        margin-top: 10px;
+    }
+}

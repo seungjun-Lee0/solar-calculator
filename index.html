@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solar Calculator</title>
+    <meta name="description" content="Solar Calculator" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="calculator.css" />
+    <!-- JQuery Version 3.7.1 & JQuery Migrate Version 3.4.1 -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.js" id="jquery-core-js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-3.4.1.js"></script>
+    <script type="text/javascript" src="/calculator.js" id="calculator-js"></script>
+
+</head>
+<body>
+
+    <div id="page" class="site">
+        <div id="content" class="site-content">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                    <h1>Solar Calculator</h1>
+
+                    <div class="container container-large">
+                        <section id="section1">
+                            <!-- System & Battery Results -->
+                            <div class="row">
+                                <div class="sub-title">
+                                    System & Battery Results
+                                </div>
+                                <div class="inner-col">
+                                    <div class="results-elements">
+                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/inverter.png">
+                                        <div>
+                                            Inverter Size <br>
+                                            <span id="inverter-size">0kVA Inverter</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inner-col">
+                                    <div class="results-elements">
+                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/solar.png">
+                                        <div>
+                                            Solar Panels <br>
+                                            <span id="solar-panel-size">0W</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="inner-col">
+                                    <div class="results-elements">
+                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/batteries.png">
+                                        <div>
+                                            Battery Capacity <br>
+                                            <span id="battery-capacity">0kWh</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Calculator Results -->
+                            <div class="results-section" id="results-section">
+                                <div class="sub-title">
+                                    Specify Usage Details
+                                </div>
+                                <table class="table responsive w-100">
+                                    <thead>
+                                        <tr class="table-secondary">
+                                            <th>Item</th>
+                                            <th>Quantity</th>
+                                            <th>Running Watts</th>
+                                            <th>Hours per Day</th>
+                                            <th>KWh per Day</th>
+                                            <th>Remove</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="appliance-list">
+
+                                    </tbody>
+                                </table>
+                                <div class="row">
+                                    <div class="inner-col results-data">
+                                        <table class="w-100" id="summary-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Potential Load (kW)</td>
+                                                    <td><span id="total-load-kw">0</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Average KWh Per Day</td>
+                                                    <td><span id="total-kwh-per-day">0</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Percentage of Simultaneous Usage</td>
+                                                    <td class="d-flex"><input type="number" id="simultaneous-usage" value="50">%</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Days of Reserve Power</td>
+                                                    <td><input type="number" id="reserve-days" value="1"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Average Sun Hours</td>
+                                                    <td><input type="number" id="sun-hours" value="4"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Require Three Phase Power</td>
+                                                    <td><input type="checkbox" id="three-phase"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> 
+                        </section>
+                        <section id="section2">
+                            <div class="row">
+                                <div class="sub-title">
+                                    Select Appliances You Plan to Use
+                                </div>
+                                <!-- General Household -->
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>General Household</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="inner-row">
+
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="1800" id="ac-large" data-title="Air Conditioner - Large" data-hour="4">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a2.png">  
+                                                        <div class="appliance-label">Air Conditioner - Large</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="850" id="ac-small" data-title="Air Conditioner - Small" data-hour="4">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a3.png">  
+                                                        <div class="appliance-label">Air Conditioner - Small</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="240" id="power-tools-charging" data-title="Charging for Common Power Tools" data-hour="1">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a5.png">  
+                                                        <div class="appliance-label">Charging for Common Power Tools</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="40" id="ceiling-fan" data-title="Fan - Ceiling" data-hour="5">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a7.png">  
+                                                        <div class="appliance-label">Fan - Ceiling</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="11" id="lights" data-hour="8" data-title="Lights">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a11.png">  
+                                                        <div class="appliance-label">Lights</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="650" id="pressure-pump" data-hour="1" data-title="Pressure Pump">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a13.png">  
+                                                        <div class="appliance-label">Pressure Pump</div> 
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Kitchen -->
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Kitchen</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="inner-row">
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="1800" id="dishwasher" data-hour="1" data-title="Dishwasher">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a16.png">  
+                                                        <div class="appliance-label">Dishwasher</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="3400" id="electric-oven" data-hour="1" data-title="Electric Oven">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a17.png">  
+                                                        <div class="appliance-label">Electric Oven</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="150" id="freezer-chest" data-hour="6" data-title="Freezer - Chest">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a18.png">  
+                                                        <div class="appliance-label">Freezer - Chest</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="175" id="fridge-freezer-large" data-hour="8" data-title="Fridge/Freezer - Large">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a19.png">  
+                                                        <div class="appliance-label">Fridge/Freezer - Large</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="20" id="gas-oven" data-hour="1" data-title="Gas - Oven">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a21.png">  
+                                                        <div class="appliance-label">Gas - Oven</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="2200" id="kettle" data-hour="0.5" data-title="Kettle">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a22.png">  
+                                                        <div class="appliance-label">Kettle</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="135" id="fridge-freezer-medium" data-hour="7.5" data-title="Medium Size - Fridge/Freezer">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a23.png">  
+                                                        <div class="appliance-label">Medium Size - Fridge/Freezer</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="1000" id="microwave" data-hour="0.1" data-title="Microwave">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a24.png">  
+                                                        <div class="appliance-label">Microwave</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="1500" id="toaster" data-hour="0.2" data-title="Toaster">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a26.png">  
+                                                        <div class="appliance-label">Toaster</div> 
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Laundry -->
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Laundry</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="inner-row">
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="2500" id="dryer" data-hour="1" data-title="Dryer">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a27.png">  
+                                                        <div class="appliance-label">Dryer</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="2000" id="hair-dryer" data-title="Hair Dryer" data-hour="0.1">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a28.png">  
+                                                        <div class="appliance-label">Hair Dryer</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="1200" id="washing-machine" data-hour="1" data-title="Washing Machine">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a29.png">  
+                                                        <div class="appliance-label">Washing Machine</div> 
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Office and Recreation -->
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Office and Recreation</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="inner-row">
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="1350" data-hour="0.2" data-title="Coffee Machine" id="coffee-machine">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a30.png">  
+                                                        <div class="appliance-label">Coffee Machine</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="135" data-hour="3" data-title="Desktop Computer" id="desktop-computer">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a31.png">  
+                                                        <div class="appliance-label">Desktop Computer</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="2000" data-hour="1" data-title="Electric Stovetop - Large" id="electric-stovetop-large">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a32.png">  
+                                                        <div class="appliance-label">Electric Stovetop - Large</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="1200" data-hour="1" data-title="Electric Stovetop - Small" id="electric-stovetop-small">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a33.png">  
+                                                        <div class="appliance-label">Electric Stovetop - Small</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="30" data-hour="2" data-title="Fan - Pedestal" id="fan-pedestal">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a35.png">  
+                                                        <div class="appliance-label">Fan - Pedestal</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="140" data-hour="1" data-title="Gaming Console" id="gaming-console">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a36.png">  
+                                                        <div class="appliance-label">Gaming Console</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="90" data-hour="6" data-title="Laptop Computer" id="laptop-computer">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a37.png">  
+                                                        <div class="appliance-label">Laptop Computer</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="10" data-hour="24" data-title="Modem/Internet" id="modem-internet">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a38.png">  
+                                                        <div class="appliance-label">Modem/Internet</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="60" data-hour="4" data-title="Sound System/Media Player" id="sound-system">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a39.png">  
+                                                        <div class="appliance-label">Sound System/Media Player</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="90" data-hour="4" data-title="TV" id="tv">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a40.png">  
+                                                        <div class="appliance-label">TV</div> 
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Power Tools -->
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Power Tools</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="inner-row">
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="3300" data-hour="0.2" data-title="Air Compressor - Single Phase" id="air-compressor">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a41.png">  
+                                                        <div class="appliance-label">Air Compressor - Single Phase</div> 
+                                                    </div>
+                                                </div>
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="6000" data-hour="0.1" data-title="Welder - Medium" id="welder-medium">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a42.png">  
+                                                        <div class="appliance-label">Welder - Medium</div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Other Appliances -->
+                                <div class="col">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <h3>Other Appliances</h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="inner-row">
+                                                <div class="inner-col">
+                                                    <div class="appliance-item" data-wattage="1" data-hour="1" data-title='Custom Appliances' id="custom-appliances">
+                                                        <img src="https://pngsolarsupply.com/wp-content/themes/pngss/img/a43.png">  
+                                                        <div class="appliance-label">Custom Appliances</div> 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+
+                    </div><!-- .container -->
+                </main><!-- #main -->
+            </div><!-- #primary -->
+        </div><!-- #content -->
+    </div><!-- #page -->
+</body>
+</html>
