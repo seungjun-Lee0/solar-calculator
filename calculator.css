@@ -242,33 +242,40 @@ body {
     max-width: 100%;
 }
 
+#appliance-list input{
+    width: 100%;
+}
 
 @media (max-width: 900px) {
     .container{
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
     
     #section1{
         position: unset;
         width: 100%;
-        padding: 0;
-        overflow: none;
+        padding: 10px 0px;
+        overflow: unset;
         transition: none !important;
     }
 
     #section2{  
         width: 100%;
     }
+
+    #summary-table td {
+        padding: 4px 0px;
+    }
 }
 
 @media (max-width: 768px) {
     .col, #section2 .inner-col {
-        flex: 0 0 100%;
+        /* flex: 0 0 100%; */
         max-width: 100%;
     }
     
     .inner-row, #section2 .row {
-        flex-direction: column !important;
+        /* flex-direction: column !important; */
     }
 
     .card {
