@@ -173,7 +173,7 @@ body {
 .appliance-label {
     margin-top: 10px;
     text-align: center;
-    font-size: 0.7em;    
+    font-size: 0.8em;    
 }
 
 .appliance-item img {
@@ -182,7 +182,7 @@ body {
 
 /* RESULT SECTION */
 .results-section {
-    margin-top: 30px;
+    margin: 5px;
 }
 
 .results-data {
@@ -196,7 +196,7 @@ body {
 
 .results-elements{
     display: flex;
-    font-size: 12px;
+    font-size: 0.8rem;
     align-items: center;
     flex-direction: row;
 }
@@ -212,7 +212,7 @@ body {
 }
 
 .table th, .table td {
-    font-size: 12px;
+    font-size: 0.8rem;
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #ddd;
@@ -224,7 +224,7 @@ body {
 
 #results-section table {
     width: 100%;
-    table-layout: fixed;
+    table-layout: auto;
     word-wrap: break-word;
 }
 
@@ -234,7 +234,7 @@ body {
 }
 
 #summary-table td {
-    font-size: 12px;
+    font-size: 0.8rem;
     padding: 5px 10px;
 }
 
@@ -248,6 +248,8 @@ body {
 
 @media (max-width: 900px) {
     .container{
+        margin: 0;
+        padding: 5px;
         flex-direction: column;
     }
     
