@@ -20,7 +20,7 @@
         <div id="content" class="site-content">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
-                    <h1>Solar Calculator</h1>
+                    <h1>Solar Load Calculator</h1>
 
                     <div class="container container-large">
                         <section id="section1">
@@ -91,9 +91,16 @@
                                                     <td><span id="total-kwh-per-day">0</span></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Percentage of Simultaneous Usage</td>
-                                                    <td class="d-flex"><input type="number" id="simultaneous-usage" value="50">%</td>
-                                                </tr>
+                                                    <td>Simultaneous Usage Scenario</td>
+                                                    <td>
+                                                        <select id="simultaneous-usage">
+                                                            <option value="30">Home: Low Usage (30%)</option>
+                                                            <option value="50" selected>Home: Average Usage (50%)</option>
+                                                            <option value="70">Office: High Usage (70%)</option>
+                                                            <option value="90">Factory: Very High Usage (90%)</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>                                                
                                                 <tr>
                                                     <td>Days of Reserve Power</td>
                                                     <td><input type="number" id="reserve-days" value="1"></td>
@@ -101,10 +108,6 @@
                                                 <tr>
                                                     <td>Average Sun Hours</td>
                                                     <td><input type="number" id="sun-hours" value="4"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Require Three Phase Power</td>
-                                                    <td><input type="checkbox" id="three-phase"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -117,11 +120,11 @@
                                 <div class="sub-title">
                                     Select Appliances You Plan to Use
                                 </div>
-                                <!-- General Household -->
+                                <!-- General -->
                                 <div class="col">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h3>General Household</h3>
+                                            <h3>General</h3>
                                         </div>
                                         <div class="card-body">
                                             <div class="inner-row">
@@ -262,11 +265,11 @@
                                     </div>
                                 </div>
 
-                                <!-- Office and Recreation -->
+                                <!-- Work and Leisure -->
                                 <div class="col">
                                     <div class="card">
                                         <div class="card-header">
-                                            <h3>Office and Recreation</h3>
+                                            <h3>Work and Leisure</h3>
                                         </div>
                                         <div class="card-body">
                                             <div class="inner-row">

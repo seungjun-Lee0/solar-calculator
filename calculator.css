@@ -195,7 +195,6 @@ body {
     width: 50%;
 }
 
-
 .results-elements{
     display: flex;
     font-size: 0.8rem;
@@ -229,11 +228,6 @@ body {
     border: 1px solid #ddd;
     table-layout: auto;
     word-wrap: break-word;
-}
-
-
-#results-section {
-    overflow-x: auto;
 }
 
 #summary-table td {
