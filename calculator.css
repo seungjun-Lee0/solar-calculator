@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 /* COMMON SECTION */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Open Sans", sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f9fa;
@@ -26,20 +29,29 @@ body {
 }
 
 h1, h2, h3 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
     margin: 0 0;
 }
 
 h1 {
     font-size: 2em;
     text-align: center;
-    margin: 30px 0;
 }
 
 h2, h3 {
     font-size: 1em;
 }
 
+.title {
+    background-color: #1a3755 !important;
+    padding: 1rem 0;
+    color: white;
+}
+
 .sub-title {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
     width: 100%;
     text-align: center;
     margin: 10px 0;
@@ -73,21 +85,174 @@ body {
     background-color: transparent;
 }
 
+/* HEADER */
+/* General Header Styling */
+/* General Header Styling */
+#header {
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.menu-area {
+    width: 100%;
+    padding: 10px 0;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-area{
+    margin-left: 5px;
+}
+
+.logo-area img {
+    width: 120px;
+    height: auto;
+}
+
+/* Menu Styling */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#primary-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+#primary-menu li {
+    margin-right: 20px;
+}
+
+#primary-menu a {
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+.menu-item-has-children {
+    position: relative;
+}
+
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Solutions 메뉴 바로 아래에 위치 */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    min-width: 200px;
+    z-index: 999; /* 메뉴가 다른 요소 위에 나타나도록 설정 */
+}
+
+.sub-menu li {
+    padding: 10px;
+}
+
+.sub-menu a {
+    text-decoration: none;
+    color: #333;
+}
+
+.sub-menu a:hover {
+    color: #007bff;
+}
+
+
+/* Menu Toggle Button for Mobile */
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Responsive Styling */
+@media (max-width: 1000px) {
+    .menu-responsive {
+        position: relative;
+    }
+
+    /* Hide menu by default on mobile */
+    .navbar-collapse {
+        display: none;
+    }
+
+    /* Show the toggle button */
+    .menu-toggle {
+        display: block;
+        color: #333;
+        font-size: 30px;
+        margin-right: 20px;
+    }
+
+    /* Show menu when active */
+    .navbar-collapse.active {
+        display: block;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Mobile menu styles */
+    #primary-menu {
+        flex-direction: column;
+    }
+
+    #primary-menu li {
+        margin: 10px 0;
+    }
+
+    .sub-menu {
+        position: static;
+        box-shadow: none;
+    }
+}
+
+
+
+
 /* SECTION */
 #section1{
     width: 45%;
-    height: 72%;
+    height: 75%;
     left: 2%;
-    bottom: 8%;
+    bottom: 2%;
     position: fixed;
     overflow: scroll;
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    transition: transform  0.3s ease-out;
-
+    transition: height  0.1s ease-out;
 }
 
 #section2{  
@@ -116,18 +281,15 @@ body {
 .card {
     background-color: #fff;
     border: 1px solid #ddd;
-    border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
 .card-header {
-    background-color: #333;
+    background-color: #1a3755;
     color: #fff;
     padding: 10px;
     border-bottom: 1px solid #ddd;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     font-size: 1.2em;
     text-align: center;
 }
@@ -213,7 +375,7 @@ body {
 }
 
 .table th, .table td {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #ddd;
@@ -248,7 +410,7 @@ body {
 @media (max-width: 900px) {
     .container{
         margin: 0;
-        padding: 5px;
+        padding: 0;
         flex-direction: column;
     }
     
@@ -257,6 +419,7 @@ body {
         width: 100%;
         padding: 10px 0px;
         overflow: unset;
+        box-shadow: none;
         transition: none !important;
     }
 
@@ -270,6 +433,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    .col{
+        padding: 0;
+    }
+
     .col, #section2 .inner-col {
         /* flex: 0 0 100%; */
         max-width: 100%;
@@ -285,5 +452,11 @@ body {
 
     .results-data {
         margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .results-data .w-100{
+        width: 99%;
     }
 }

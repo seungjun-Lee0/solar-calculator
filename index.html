@@ -15,12 +15,63 @@
 
 </head>
 <body>
+    <header id="header">
+        <!-- Header Menu Start -->
+        <div class="menu-area">
+            <div class="header-container">
+                <div class="header-row">
+                    <div class="logo-area">
+                        <a href="https://tepng.com/" rel="home">
+                            <img src="https://tepng.com/wp-content/uploads/2022/02/logo.png" alt="TE PNG">
+                        </a>
+                    </div>
+                    <div class="menu-responsive">
+                        <!-- Toggle Button for Mobile -->
+                        <div class="menu-toggle" id="menu-toggle">&#61;</div>
+                        <nav class="nav navbar">
+                            <div class="navbar-collapse">
+                                <ul id="primary-menu" class="menu">
+                                    <li><a href="https://tepng.com/home/">Home</a></li>
+                                    <li><a href="https://tepng.com/about-us/">About Us</a></li>
+                                    <li class="menu-item-has-children">
+                                        <a href="#" id="solution-link">Solutions</a>
+                                        <ul class="sub-menu" id="solution-submenu">
+                                            <li><a href="https://tepng.com/communications/">Communications</a></li>
+                                            <li><a href="https://tepng.com/hospitality-equipment/">Hospitality Equipment</a></li>
+                                            <li><a href="https://tepng.com/information-technology/">Information Technology</a></li>
+                                            <li><a href="https://tepng.com/broadcast-professional-audio/">Broadcast &amp; Professional Audio</a></li>
+                                            <li><a href="https://tepng.com/electrical-and-hardware/">Electrical &amp; Hardware</a></li>
+                                            <li><a href="https://tepng.com/security-systems/">Security Systems</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="https://tepng.com/case-studies/">Case Studies</a></li>
+                                    <li><a href="https://tepng.com/category/business-news/">News</a></li>
+                                    <li><a href="https://tepng.com/contact-us/">Contact Us</a></li>
+                                    <li><a href="https://tepng.com/shop-online/">Shop Online</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Menu End -->
+    </header>
+    
+    
+    
+    
+    
+    
 
     <div id="page" class="site">
         <div id="content" class="site-content">
             <div id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
-                    <h1>Solar Load Calculator</h1>
+                    <div class="title">
+                        <h1>Solar Load Calculator</h1>
+                    </div>
 
                     <div class="container container-large">
                         <section id="section1">
@@ -57,6 +108,42 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                <div class="inner-col results-data">
+                                    <table class="w-100" id="summary-table">
+                                        <tbody>
+                                            <tr>
+                                                <td>Potential Load (kW)</td>
+                                                <td><span id="total-load-kw">0</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Average KWh Per Day</td>
+                                                <td><span id="total-kwh-per-day">0</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Simultaneous Usage Scenario</td>
+                                                <td>
+                                                    <select id="simultaneous-usage">
+                                                        <option value="30">Home: Low Usage (30%)</option>
+                                                        <option value="50" selected>Home: Average Usage (50%)</option>
+                                                        <option value="70">Office: High Usage (70%)</option>
+                                                        <option value="90">Factory: Very High Usage (90%)</option>
+                                                    </select>
+                                                </td>
+                                            </tr>                                                
+                                            <tr>
+                                                <td>Days of Reserve Power</td>
+                                                <td><input type="number" id="reserve-days" value="1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Average Sun Hours</td>
+                                                <td><input type="number" id="sun-hours" value="4"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                             
                             <!-- Calculator Results -->
                             <div class="results-section" id="results-section">
@@ -78,41 +165,6 @@
 
                                     </tbody>
                                 </table>
-                                <div class="row">
-                                    <div class="inner-col results-data">
-                                        <table class="w-100" id="summary-table">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Potential Load (kW)</td>
-                                                    <td><span id="total-load-kw">0</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Average KWh Per Day</td>
-                                                    <td><span id="total-kwh-per-day">0</span></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Simultaneous Usage Scenario</td>
-                                                    <td>
-                                                        <select id="simultaneous-usage">
-                                                            <option value="30">Home: Low Usage (30%)</option>
-                                                            <option value="50" selected>Home: Average Usage (50%)</option>
-                                                            <option value="70">Office: High Usage (70%)</option>
-                                                            <option value="90">Factory: Very High Usage (90%)</option>
-                                                        </select>
-                                                    </td>
-                                                </tr>                                                
-                                                <tr>
-                                                    <td>Days of Reserve Power</td>
-                                                    <td><input type="number" id="reserve-days" value="1"></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Average Sun Hours</td>
-                                                    <td><input type="number" id="sun-hours" value="4"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
                             </div> 
                         </section>
                         <section id="section2">

@@ -155,24 +155,72 @@ document.addEventListener('scroll', function() {
     const scrollPosition = window.scrollY;
 
     if (window.innerWidth >= 900) {
-        clearTimeout(isScrolling);
-
-        let offset = 0;
-
-        if (scrollPosition > lastScrollTop) {
-            offset = -20; 
+        if (scrollPosition > 130) {
+            // 스크롤이 130px 이상일 때 height를 90%로 설정
+            section1.style.height = '93%';
         } else {
-            offset = 20;
+            // 스크롤이 다시 위로 올라오면 height를 75%로 설정
+            section1.style.height = '75%';
         }
-
-        section1.style.transform = `translateY(${offset}px)`;
-
-        isScrolling = setTimeout(() => {
-            section1.style.transform = 'translateY(0)';
-        }, 20);
     } else {
-        section1.style.transform = 'translateY(0)';
+        // 900px 이하의 화면에서는 height를 75%로 유지
+        section1.style.height = '75%';
     }
-
-    lastScrollTop = scrollPosition;
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const solutionLink = document.getElementById('solution-link');
+    const subMenu = document.getElementById('solution-submenu');
+    let isSubMenuOpen = false;
+
+    // 클릭 이벤트
+    solutionLink.addEventListener('click', function (event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        isSubMenuOpen = !isSubMenuOpen;
+        toggleSubMenu();
+    });
+
+    // hover 이벤트 처리
+    solutionLink.addEventListener('mouseenter', function () {
+        isSubMenuOpen = true;
+        toggleSubMenu();
+    });
+
+    subMenu.addEventListener('mouseenter', function () {
+        isSubMenuOpen = true;
+        toggleSubMenu();
+    });
+
+    subMenu.addEventListener('mouseleave', function () {
+        isSubMenuOpen = false;
+        toggleSubMenu();
+    });
+
+    // 메뉴 외부 클릭 시 닫기
+    document.addEventListener('click', function (event) {
+        if (!solutionLink.contains(event.target) && !subMenu.contains(event.target)) {
+            isSubMenuOpen = false;
+            toggleSubMenu();
+        }
+    });
+
+    // 서브 메뉴 열고 닫기 처리
+    function toggleSubMenu() {
+        if (isSubMenuOpen) {
+            subMenu.style.display = 'block';
+        } else {
+            subMenu.style.display = 'none';
+        }
+    }
+});
+
+
+
+
+document.getElementById('menu-toggle').addEventListener('click', function() {
+    var navbar = document.querySelector('.navbar-collapse');
+    navbar.classList.toggle('active');
+});
+
+
+
+
