@@ -242,9 +242,9 @@ body {
 
 /* SECTION */
 #section1{
-    width: 45%;
+    width: 40%;
     height: 75%;
-    left: 2%;
+    left: 7%;
     bottom: 2%;
     position: fixed;
     overflow: scroll;
@@ -351,6 +351,10 @@ body {
 .results-data {
     padding: 0;
     margin-top: 20px;
+}
+
+.results-data table{
+    width: 100%;
 }
 
 .results-data input{
